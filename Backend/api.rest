@@ -1,0 +1,22 @@
+###
+
+GET http://localhost:3000/getlastdata
+
+###
+
+GET http://localhost:3000/startcollecter
+
+###
+
+POST http://localhost:3000/modificarval
+Content-Type: application/json
+
+{
+    "hsluz": 2,
+    "riego": 1,
+    "ventilacion": 3
+}
+
+###
+
+GET http://localhost:3000/toexcel

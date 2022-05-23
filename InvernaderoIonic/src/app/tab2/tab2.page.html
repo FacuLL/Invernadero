@@ -1,0 +1,70 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <div class="info">
+      <ion-card style="width: fit-content;">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-icon name="stats-chart-outline"></ion-icon>
+          Cambiar Variables
+          </ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          En este apartado puedes configurar el funcionamiento del invernadero
+        </ion-card-content>
+        <div class="infobutton" style="display: flex; justify-content: center; width: 100%;">
+          <ion-button color="dark" style="margin-bottom: 20px;" size="small" (click)="toInfo()">
+            <ion-icon name="help-circle-outline" style="margin-right: 5px"></ion-icon>
+            Más información
+          </ion-button>
+        </div>
+      </ion-card>
+    </div>
+    <ion-item-group>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="leaf-outline" style="color: limegreen; margin-top: 2px; margin-bottom: -2px;"></ion-icon>
+          Ventilación:
+        </ion-label>
+        <ion-select placeholder="Seleccionar:">
+          <ion-select-option value="1">Baja</ion-select-option>
+          <ion-select-option value="2">Media</ion-select-option>
+          <ion-select-option value="3">Alta</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="water-outline" style="color: aqua; margin-top: 2px; margin-bottom: -2px; margin-right: 1px;"></ion-icon>
+          Riego:
+        </ion-label>
+        <ion-select placeholder="Seleccionar:">
+          <ion-select-option value="1">Bajo</ion-select-option>
+          <ion-select-option value="2">Medio</ion-select-option>
+          <ion-select-option value="3">Alto</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="bulb-outline" style="color: yellow; margin-top: 2px; margin-bottom: -2px;"></ion-icon>
+          Iluminación:</ion-label>
+        <ion-select placeholder="Seleccionar:">
+          <ion-select-option value="1">Baja</ion-select-option>
+          <ion-select-option value="2">Media</ion-select-option>
+          <ion-select-option value="3">Alta</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+    <div class="buttons">
+      <ion-button color="primary" style="margin-top: 10px;">
+        <ion-icon name="checkmark-circle-outline" style="margin-right: 10px"></ion-icon>
+        Aplicar
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

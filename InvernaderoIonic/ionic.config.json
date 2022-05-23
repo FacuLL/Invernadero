@@ -1,0 +1,7 @@
+{
+  "name": "InvernaderoIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
