@@ -1,13 +1,36 @@
-<ion-content [fullscreen]="true" [scrollEvents]="true"
-(ionScrollStart)="logScrollStart()"
-(ionScroll)="logScrolling($event)"
-(ionScrollEnd)="logScrollEnd()">
+<ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div slot="fixed">
-    <h1>Fixed Content</h1>
+
+  <div id="container" style="padding-right:15px; padding-left:15px;">
+    <div class="info">
+      <ion-card style="width: fit-content; margin: auto; margin-top: 15px;">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-icon name="stats-chart-outline"></ion-icon>
+              Monitorear Variables
+          </ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          En este apartado puedes monitorear las variables del invernadero visualizando sus gráficas. 
+        </ion-card-content>
+        <div class="infobutton" style="display: flex; justify-content: center; width: 100%;">
+          <ion-button color="dark" style="margin-bottom: 20px;" size="small" (click)="toInfo()">
+            <ion-icon name="help-circle-outline" style="margin-right: 5px"></ion-icon>
+            Más información
+          </ion-button>
+        </div>
+      </ion-card>
+    </div>
+    <div class="graficos-variables">
+      <div class="circular-progress humedad"></div>
+      <div class="circular-progress humsuelo"></div>
+      <div class="circular-progress temp"></div>
+      <div class="circular-progress luz"></div>
+    </div>
   </div>
 </ion-content>
