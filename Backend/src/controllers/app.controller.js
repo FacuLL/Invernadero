@@ -57,8 +57,12 @@ function collecter() {
                 date: today,
                 temp: data.temp,
                 humedad: data.humedad,
-                humedadsuelo: data.humedadsuelo,
-                lux: data.lux
+                indCal: data.indCal,
+                humedadSuelo: data.humSuelo,
+                lux: data.lux,
+                vent: data.vent,
+                luces: data.luces,
+                riego: data.riego
             }
             //Enviar respuesta
             connection.query('INSERT INTO datos1 SET ?', dataObj, error => {
@@ -70,8 +74,12 @@ function collecter() {
                 date: today,
                 temp: 0,
                 humedad: 0,
-                humedadsuelo: 0,
-                lux: 0
+                indCal: 0,
+                humedadSuelo: 0,
+                lux: 0,
+                vent: 0,
+                luces: 0,
+                riego: 0
             }
             connection.query('INSERT INTO datos1 SET ?', dataObj, error => {
                 if (error) throw error;
@@ -121,9 +129,13 @@ appCtrl.toExcel = async (req, res) => {
 			{ header: 'Id', key: '_id', width: 10 },
 			{ header: 'Date', key: 'date', width: 30 },
 			{ header: 'Temp', key: 'temp', width: 30},
+            { header: 'I. calor', key: 'indCal', width: 30},
 			{ header: 'Hum', key: 'humedad', width: 30},
             { header: 'Hum Suelo', key: 'humedadsuelo', width: 30},
-            { header: 'Luz (Luxes)', key: 'lux', width: 30}
+            { header: 'Luz (Luxes)', key: 'lux', width: 30},
+            { header: 'Ventilacion (on/off)', key: 'vent', width: 30},
+            { header: 'Luces (on/off)', key: 'luces', width: 20},
+            { header: 'Riego (on/off)', key: 'riego', width: 20}
 		];
         worksheet.addRows(jsonData);
         workbook.xlsx.writeFile("src\\controllers\\datos.xlsx")
