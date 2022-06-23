@@ -110,7 +110,8 @@
   }
   
   .humedad{
-    @include circular-progress(40,Humedad,lighten(rgb(0, 215, 197),20),#121212);
+    $humedad: 90;
+    @include circular-progress($humedad,Humedad,lighten(rgb(0, 215, 197),20),#121212);
     margin-top: 20px;
     display: block;
     
