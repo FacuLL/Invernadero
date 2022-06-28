@@ -5,7 +5,10 @@ const router = Router()
 const appCtrl = require('../controllers/app.controller')
 
 //Rutas
+router.get('/getalldata', appCtrl.getAllData);
 router.get('/getlastdata', appCtrl.getLastData);
+router.get('/gethour', appCtrl.getHour);
+router.get('/getminute', appCtrl.getMinute);
 router.get('/startcollecter', appCtrl.startCollecter);
 router.post('/modificarval', appCtrl.modificarVal);
 router.get('/sendval', appCtrl.sendVal);

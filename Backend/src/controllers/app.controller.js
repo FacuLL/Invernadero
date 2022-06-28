@@ -45,7 +45,7 @@ appCtrl.startCollecter = async (req, res) => {
 
 function collecter() {
     var today = new Date();
-    if(today.getMinutes() == 0) {
+    if(today.getMinutes() == 0 || today.getMinutes() == 30) {
         console.log('Datos solicitados');
         //Solicita datos del arduino 1 (invernadero automatico)
         request({
@@ -147,6 +147,22 @@ appCtrl.toExcel = async (req, res) => {
                 res.sendFile('datos.xlsx', options);
 		    });
     });
+}
+
+appCtrl.getAllData = async (req, res) => {
+    connection.query('SELECT * FROM datos1', (err,resp) => {
+        res.json(resp);
+    });
+}
+
+appCtrl.getHour = async (req, res) => {
+    var today = new Date();
+    res.send(today.getHours())
+}
+
+appCtrl.getMinute = async (req, res) => {
+    var today = new Date();
+    res.send(today.getMinutes());
 }
 
 
