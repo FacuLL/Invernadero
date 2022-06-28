@@ -157,14 +157,13 @@ appCtrl.getAllData = async (req, res) => {
 
 appCtrl.getHour = async (req, res) => {
     var today = new Date();
-    res.send(today.getHours())
+    var hour = {
+        hour: today.getHours(),
+        minute: today.getMinutes(),
+        second: today.getSeconds()
+    }
+    res.send(hour)
 }
-
-appCtrl.getMinute = async (req, res) => {
-    var today = new Date();
-    res.send(today.getMinutes());
-}
-
 
 //Exportacion de modulo
 module.exports = appCtrl;
