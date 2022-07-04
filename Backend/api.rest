@@ -1,6 +1,6 @@
 ###
 
-GET http://localhost:3000/getlastdata
+GET http://localhost:3000/gethour
 
 ###
 
@@ -12,9 +12,9 @@ POST http://localhost:3000/modificarval
 Content-Type: application/json
 
 {
-    "hsluz": 2,
-    "riego": 1,
-    "ventilacion": 3
+    "hsluz": 0,
+    "riego": 0,
+    "ventilacion": 0
 }
 
 ###
