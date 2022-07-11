@@ -98,7 +98,7 @@ appCtrl.modificarVal = async (req, res) => {
     });
 
     request({
-        uri: 'Ruta de modificacion de valores del arduino',
+        uri: 'http://192.168.201.99/config',
         json: true,
         method: "POST",
         body: valObj

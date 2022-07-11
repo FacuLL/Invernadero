@@ -1,1 +1,9 @@
-GET http://192.168.202.154/sensores
+GET http://192.168.201.99/sensores
+
+###
+
+GET http://192.168.0.70:3000/gethour
+
+###
+
+POST http://192.168.201.36:3000/setval

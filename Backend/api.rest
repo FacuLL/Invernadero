@@ -14,7 +14,7 @@ Content-Type: application/json
 {
     "hsluz": 0,
     "riego": 0,
-    "ventilacion": 0
+    "ventilacion": 3
 }
 
 ###
