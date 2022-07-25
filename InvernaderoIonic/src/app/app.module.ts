@@ -7,11 +7,37 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InfoconfigComponent } from './components/infoconfig/infoconfig.component';
+
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, InfoconfigComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, NgxChartsModule,
+    NgCircleProgressModule.forRoot({
+      "radius": 100,
+      "space": 5,
+      "outerStrokeGradient": true,
+      "outerStrokeWidth": 10,
+      "outerStrokeColor": "#ff0f0f",
+      "outerStrokeGradientStopColor": "#ff5252",
+      "innerStrokeColor": "#595959",
+      "innerStrokeWidth": 10,
+      "title": "UI",
+      "titleColor": "#dedede",
+      "titleFontSize": "27",
+      "subtitleFontSize": "16",
+      "animateTitle": false,
+      "animationDuration": 1000,
+      "showUnits": false,
+      "showBackground": false,
+      "clockwise": false,
+      "startFromZero": true,
+      "lazy": false,
+      "renderOnClick": false
+  })],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

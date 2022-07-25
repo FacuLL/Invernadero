@@ -6,21 +6,24 @@
   </ion-header>
 
   <div id="container">
-    <ion-card style="width: fit-content;">
+    <ion-card class="card">
       <ion-card-header>
         <ion-card-title>
         <ion-icon name="bar-chart-outline"></ion-icon>  
         Obtener Datos
         </ion-card-title>
       </ion-card-header>
-    
       <ion-card-content>
-    Presionando este boton obtendrás los datos del invernadero en una planilla excel (.xlxs)
+        Presionando este boton obtendrás los datos del invernadero en una planilla excel (.xlxs)
       </ion-card-content>
-      <ion-button color="success" style="margin-bottom: 20px;">
-        <ion-icon name="cloud-download-outline" style="margin-right: 10px"></ion-icon>
-        Descargar Excel
-      </ion-button>
+      <div class="cardButtonDiv">
+        <ion-button color="success" class="cardButton">
+          <ion-icon name="cloud-download-outline" class="buttonIcon"></ion-icon>
+          Descargar Excel
+        </ion-button>
+      </div>
     </ion-card>
+
+    
   </div>
 </ion-content>

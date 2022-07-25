@@ -13,7 +13,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
-app.use(cors({origin:'http://localhost:4200'}));
+app.use(cors({origin:'*'}));
 app.use(require('./routes/app.routes'));
 
 

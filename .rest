@@ -1,8 +1,8 @@
-GET http://192.168.201.99/sensores
+GET http://192.168.202.48:3000/getlastdata
 
 ###
 
-GET http://192.168.0.70:3000/gethour
+GET http://192.168.201.88/sensores
 
 ###
 

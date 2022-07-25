@@ -1,136 +1,56 @@
-.circular-progress {
-    &,
-    &:before,
-    &:after{
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
+    #container {
+        padding-right:15px;
+        padding-left:15px;
+        max-width: 500px;
+        margin: auto;
     }
-    margin: auto;
-  
-    position: relative;
-    &:before,
-    &:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-      text-align: center;
-    }
-    &:before {
-      padding: .5em;
-      line-height: 140px;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    &:after {
-      font-size: .8rem;
-      font-weight: normal;
-      text-transform: uppercase;
-      line-height: 230px;
-    }
-  }
-  
-  @function progress($percent){
-    $deg: $percent/100 * 180;
-    @return #{$deg}+deg;
-  }
 
-  @function progressgrados($percent){
-    $deg: $percent/90 * 180;
-    @return #{$deg}+deg;
-  }
-
-  @function progressluxes($percent){
-    $deg: $percent/500 * 180;
-    @return #{$deg}+deg;
-  }
-
-  @mixin circular-progress($percent,$valor,$color,$bgcolor){
-  
-    $progress: progress($percent);
-    background: linear-gradient(0deg, $color 50%, rgba($color,.3) 50%);
-    transform: rotate($progress);
-    &:before,
-    &:after {
-      color: $color;
+    #container strong {
+        font-size: 20px;
+        line-height: 26px;
     }
-    &:before {
-      background: $bgcolor content-box;
-      transform: rotate(-#{$progress});
-      content: "#{$percent}%";
-    }
-    &:after {
-      background: linear-gradient(transparent 50%, $bgcolor 50%);
-      content: "#{$valor}";
-      transform: rotate(-#{$progress}) scale(1.1);
-    }
-  }
-
-  @mixin circular-progresstemp($percent,$valor,$color,$bgcolor){
-  
-    $progress: progressgrados($percent);
-    background: linear-gradient(0deg, $color 50%, rgba($color,.3) 50%);
-    transform: rotate($progress);
-    &:before,
-    &:after {
-      color: $color;
-    }
-    &:before {
-      background: $bgcolor content-box;
-      transform: rotate(-#{$progress});
-      content: "#{$percent}°C";
-    }
-    &:after {
-      background: linear-gradient(transparent 50%, $bgcolor 50%);
-      content: "#{$valor}";
-      transform: rotate(-#{$progress}) scale(1.1);
-    }
-  }
-
-  @mixin circular-progresslux($percent,$valor,$color,$bgcolor){
-  
-    $progress: progressluxes($percent);
-    background: linear-gradient(0deg, $color 50%, rgba($color,.3) 50%);
-    transform: rotate($progress);
-    &:before,
-    &:after {
-      color: $color;
-    }
-    &:before {
-      background: $bgcolor content-box;
-      transform: rotate(-#{$progress});
-      content: "#{$percent} LUX";
-    }
-    &:after {
-      background: linear-gradient(transparent 50%, $bgcolor 50%);
-      content: "#{$valor}";
-      transform: rotate(-#{$progress}) scale(1.1);
-    }
-  }
-  
-  .humedad{
-    $humedad: 90;
-    @include circular-progress($humedad,Humedad,lighten(rgb(0, 215, 197),20),#121212);
-    margin-top: 20px;
-    display: block;
     
-  }
-  .humsuelo{
-    @include circular-progress(60,Humedad Suelo,lighten(rgb(0, 228, 27),20),#121212);
-    margin-top: -40px;
-    display: block;
+    #container a {
+        text-decoration: none;
+    }
+
+    .card {
+        width: 100%; 
+        margin: auto;
+        margin-top: 15px;
+    }
     
-  }
-  .temp{
-    @include circular-progresstemp(30,"Temperatura (0/90 °C)",lighten(rgb(222, 14, 24),10),#121212);
-    margin-top: -40px;
-    display: block;
-    
-  }
-  .luz{
-    @include circular-progresslux(100,"Luz (0/500 luxes)",lighten(rgb(255, 238, 0),10),#121212);
-    margin-top: -40px;
-    display: block;
-    
-  }
+    .cardButtonDiv {
+    display: flex; 
+    justify-content: center; 
+    width: 100%;
+    }
+
+    .buttonIcon {
+    margin-right: 5px;
+    }
+
+    .cardButton {
+    margin-bottom: 15px;
+    }
+
+    .graficos-variables {
+        display: flex; 
+        justify-content: center;
+    }
+
+    .graficos {
+        width: fit-content; 
+        padding-top: 20px;
+    }
+
+    .conjunto-graficos {
+        width: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .moreinfo {
+        color: white;
+    }

@@ -1,0 +1,23 @@
+.card {
+    width: 100%; 
+    margin: auto;
+    margin-top: 15px;
+  }
+
+.cardError {
+    color:black;
+}
+
+.cardButtonDiv {
+    display: flex; 
+    justify-content: center; 
+    width: 100%;
+}
+
+.cardButton {
+    margin-bottom: 15px;
+}
+
+.buttonIcon {
+    margin-right: 5px;
+}

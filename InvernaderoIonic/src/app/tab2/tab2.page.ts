@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { TabsPage } from '../tabs/tabs.page';
+
 
 @Component({
   selector: 'app-tab2',
@@ -8,21 +10,26 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab2Page {
 
-  constructor(private alertController:AlertController) {}
+  constructor(private alertController:AlertController, private tabs: TabsPage) {}
+
+  ngOnInit() {
+
+  }
 
   async presentInfoAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Alert',
+      header: 'Valores',
       subHeader: 'Subtitle',
       message: 'This is an alert message.',
       buttons: ['OK']
     });
 
     await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+    await alert.onDidDismiss();
   }
 
+  public onSelectChange(e, varName) {
+    this.tabs.valores[varName] = e.detail.value;
+  }
 }

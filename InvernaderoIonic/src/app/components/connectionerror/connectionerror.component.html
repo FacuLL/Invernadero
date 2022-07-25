@@ -1,0 +1,19 @@
+<ion-card class="card cardError" color="danger">
+  <ion-card-header>
+    <ion-card-title>
+      <ion-icon name="alert-circle-outline"></ion-icon>
+        No se ha podido conectar
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ tabs.errorcard }}
+  </ion-card-content>
+
+  <div class="cardButtonDiv">
+    <ion-button color="dark" class="cardButton" size="small" (click)="tabs.reloadData(); tabs.reloadValues()">
+      <ion-icon name="reload-outline" class="buttonIcon"></ion-icon>
+      Reintentar
+    </ion-button>
+  </div>
+</ion-card>

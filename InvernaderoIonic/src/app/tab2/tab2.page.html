@@ -6,63 +6,71 @@
   </ion-header> 
 
   <div id="container">
-    <div class="info">
-      <ion-card style="width: fit-content;">
-        <ion-card-header>
-          <ion-card-title>
-            <ion-icon name="stats-chart-outline"></ion-icon>
+    <ion-card class="card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="stats-chart-outline"></ion-icon>
           Cambiar Variables
-          </ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          En este apartado puedes configurar el funcionamiento del invernadero
-        </ion-card-content>
-        <div class="infobutton" style="display: flex; justify-content: center; width: 100%;">
-          <ion-button color="dark" style="margin-bottom: 20px;" size="small" (click)="toInfo()">
-            <ion-icon name="help-circle-outline" style="margin-right: 5px"></ion-icon>
-            Más información
-          </ion-button>
-        </div>
-      </ion-card>
-    </div>
-    <ion-item-group>
-      <ion-item>
+        </ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        En este apartado puedes configurar el funcionamiento del invernadero
+      </ion-card-content>
+
+      <div class="cardButtonDiv">
+        <ion-button color="dark" class="cardButton" size="small" (click)="presentInfoAlert()">
+          <ion-icon name="help-circle-outline" class="buttonIcon"></ion-icon>
+          Más información
+        </ion-button>
+      </div>
+    </ion-card>
+
+    <app-connectionerror *ngIf="tabs.errorcard != ''"></app-connectionerror>
+
+    <ion-item-group class="itemsdiv">
+      <ion-item class="{{tabs.valores.ventilacion != tabs.nuevosValores.ventilacion ? 'activated' : ''}}">
         <ion-label>
-          <ion-icon name="leaf-outline" style="color: limegreen; margin-top: 2px; margin-bottom: -2px;"></ion-icon>
+          <ion-icon name="leaf-outline" class="inputIcon icon-lime"></ion-icon>
           Ventilación:
         </ion-label>
-        <ion-select placeholder="Seleccionar:">
-          <ion-select-option value="1">Baja</ion-select-option>
-          <ion-select-option value="2">Media</ion-select-option>
-          <ion-select-option value="3">Alta</ion-select-option>
+        <ion-select placeholder="Sin conexión" disabled="{{tabs.isOptionsDisabled}}" (ionChange)="onSelectChange($event, 'ventilacion')" value="{{tabs.nuevosValores.ventilacion}}">
+          <ion-select-option value="-1">Apagada</ion-select-option>
+          <ion-select-option value="0">Baja</ion-select-option>
+          <ion-select-option value="1">Media</ion-select-option>
+          <ion-select-option value="2">Alta</ion-select-option>
+          <ion-select-option value="3">Siempre</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item>
+      <ion-item class="{{tabs.valores.riego != tabs.nuevosValores.riego ? 'activated' : ''}}">
         <ion-label>
-          <ion-icon name="water-outline" style="color: aqua; margin-top: 2px; margin-bottom: -2px; margin-right: 1px;"></ion-icon>
+          <ion-icon name="water-outline" class="inputIcon icon-aqua"></ion-icon>
           Riego:
         </ion-label>
-        <ion-select placeholder="Seleccionar:">
-          <ion-select-option value="1">Bajo</ion-select-option>
-          <ion-select-option value="2">Medio</ion-select-option>
-          <ion-select-option value="3">Alto</ion-select-option>
+        <ion-select placeholder="Sin conexión" disabled="{{tabs.isOptionsDisabled}}" (ionChange)="onSelectChange($event, 'riego')" value="{{tabs.nuevosValores.riego}}">
+          <ion-select-option value="-1">Apagado</ion-select-option>
+          <ion-select-option value="0">Bajo</ion-select-option>
+          <ion-select-option value="1">Medio</ion-select-option>
+          <ion-select-option value="2">Alto</ion-select-option>
+          <ion-select-option value="3">Siempre</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item>
+      <ion-item class="{{tabs.valores.hsluz != tabs.nuevosValores.hsluz ? 'activated' : ''}}">
         <ion-label>
-          <ion-icon name="bulb-outline" style="color: yellow; margin-top: 2px; margin-bottom: -2px;"></ion-icon>
+          <ion-icon name="bulb-outline" class="inputIcon icon-yellow"></ion-icon>
           Iluminación:</ion-label>
-        <ion-select placeholder="Seleccionar:">
-          <ion-select-option value="1">Baja</ion-select-option>
-          <ion-select-option value="2">Media</ion-select-option>
-          <ion-select-option value="3">Alta</ion-select-option>
+        <ion-select placeholder="Sin conexión" disabled="{{tabs.isOptionsDisabled}}" (ionChange)="onSelectChange($event, 'hsluz')" value="{{tabs.nuevosValores.hsluz}}">
+          <ion-select-option value="-1">Apagada</ion-select-option>
+          <ion-select-option value="0">Baja</ion-select-option>
+          <ion-select-option value="1">Media</ion-select-option>
+          <ion-select-option value="2">Alta</ion-select-option>
+          <ion-select-option value="3">Siempre</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-item-group>
     <div class="buttons">
-      <ion-button color="primary" style="margin-top: 10px;">
-        <ion-icon name="checkmark-circle-outline" style="margin-right: 10px"></ion-icon>
+      <ion-button color="primary" disabled="{{tabs.isOptionsDisabled}}" class="submitButton" (click)="tabs.updateValues()">
+        <ion-icon name="checkmark-circle-outline" class="submitButtonIcon"></ion-icon>
         Aplicar
       </ion-button>
     </div>

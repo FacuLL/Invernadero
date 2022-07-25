@@ -15,7 +15,7 @@
   const char* ssid = "Red EATA"; // Nombre wifi
   const char* password = ""; // Contraseña wifi
 
-  IPAddress local_IP(192,168,201,99);
+  IPAddress local_IP(192,168,201,88);
   IPAddress gateway(192,168,200,1);
   IPAddress subnet(255,255,248,0);
   // IPAddress gateway(192,168,0,1);
@@ -25,8 +25,7 @@
   
   WebServer server(80);
   // Conexion con backend
-  String serverip = "http://192.168.201.36:3000";
-  // String serverip = "http://192.168.0.70:3000";
+  String serverip = "http://192.168.202.48:3000";
   // Sensores
     //DHT 11 (Temp y humedad)
       #define DHTPIN 4 // Pin del dht
@@ -264,9 +263,9 @@ void setup() {
   WiFi.begin(ssid, password); // Intentamos la conexion a la WIFI
 
   // Configuramos la ip estática
-  if (!WiFi.config(local_IP, gateway, subnet, dns1)) {
-    Serial.println("STA Failed to configure");
-  }
+  // if (!WiFi.config(local_IP, gateway, subnet, dns1)) {
+  //  Serial.println("STA Failed to configure");
+  //}
   
   while (WiFi.status() != WL_CONNECTED)
        {  delay(1000);

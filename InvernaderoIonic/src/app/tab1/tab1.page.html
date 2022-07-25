@@ -5,12 +5,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container" style="padding-right:15px; padding-left:15px;">
-    <div class="info">
-      <ion-card style="width: fit-content; margin: auto; margin-top: 15px;">
+  <div id="container">
+      <ion-card class="card">
         <ion-card-header>
           <ion-card-title>
-            <ion-icon name="stats-chart-outline"></ion-icon>
+            <ion-icon name="eye-outline"></ion-icon>
               Monitorear Variables
           </ion-card-title>
         </ion-card-header>
@@ -18,19 +17,39 @@
         <ion-card-content>
           En este apartado puedes monitorear las variables del invernadero visualizando sus gráficas. 
         </ion-card-content>
-        <div class="infobutton" style="display: flex; justify-content: center; width: 100%;">
-          <ion-button color="dark" style="margin-bottom: 20px;" size="small" (click)="toInfo()">
-            <ion-icon name="help-circle-outline" style="margin-right: 5px"></ion-icon>
+        <div class="cardButtonDiv">
+          <ion-button color="dark" class="cardButton" size="small" (click)="toInfo()">
+            <ion-icon name="help-circle-outline" class="buttonIcon"></ion-icon>
             Más información
           </ion-button>
         </div>
       </ion-card>
-    </div>
+
+      <app-connectionerror *ngIf="tabs.errorcard != ''"></app-connectionerror>
+
     <div class="graficos-variables">
-      <div class="circular-progress humedad" [ngStyle]="$humedad: 90"></div>
-      <div class="circular-progress humsuelo"></div>
-      <div class="circular-progress temp"></div>
-      <div class="circular-progress luz"></div>
+      <div class="graficos" >
+        <div class="conjunto-graficos">
+          <circle-progress #circleProgress [options]="this.tabs.optionsTemp"></circle-progress>
+          <circle-progress #circleProgress [options]="this.tabs.optionsHumedad"></circle-progress>
+          <circle-progress #circleProgress [options]="this.tabs.optionsHumSuelo"></circle-progress>
+          <circle-progress #circleProgress [options]="this.tabs.optionsLuz"></circle-progress>
+        </div>
+        <div class="moreinfo">
+          <div class="indcaldiv">
+            <p>Indice de calor: {{tabs.indCal}}ºC</p>
+          </div>
+          <div class="ventdiv">
+            <p>Ventilación: <span style="color: {{tabs.ventilacion ? '#5F5' : '#F55'}}">{{tabs.ventilacion ? 'Encendida' : 'Apagada'}}</span></p>
+          </div>
+          <div class="lucesdiv">
+            <p>Luces: <span style="color: {{tabs.lampara ? '#5F5' : '#F55'}}">{{tabs.lampara ? 'Encendidas' : 'Apagadas'}}</span></p>
+          </div>
+          <div class="ventdiv">
+            <p>Riego: <span style="color: {{tabs.riego ? '#5F5' : '#F55'}}">{{tabs.riego ? 'Encendido' : 'Apagado'}}</span></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

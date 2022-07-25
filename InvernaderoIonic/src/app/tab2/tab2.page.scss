@@ -1,8 +1,10 @@
-#container {
-    width: 100%;
-    height: 100%;
+  #container {
+    padding-right:15px;
+    padding-left:15px;
+    max-width: 500px;
+    margin: auto;
   }
-  
+
   #container strong {
     font-size: 20px;
     line-height: 26px;
@@ -11,9 +13,7 @@
   #container p {
     font-size: 16px;
     line-height: 22px;
-  
     color: #8c8c8c;
-  
     margin: 0;
   }
   
@@ -21,13 +21,63 @@
     text-decoration: none;
   }
 
-  .info {
-      width: 100%;
-      display: flex;
-      justify-content: center;
+  .card {
+    width: 100%; 
+    margin: auto;
+    margin-top: 15px;
   }
 
   .buttons {
       display: flex;
       justify-content: center;
+  }
+
+  .itemsdiv {
+    width: 100%;
+    margin: auto;
+    margin-top: 15px;
+  }
+
+  .cardButtonDiv {
+    display: flex; 
+    justify-content: center; 
+    width: 100%;
+  }
+
+  .buttonIcon {
+    margin-right: 5px;
+  }
+
+  .cardButton {
+    margin-bottom: 15px;
+  }
+
+  .inputIcon {
+    margin-top: 2px; 
+    margin-bottom: -2px;
+  }
+
+  .activated {
+    --background: rgb(36, 85, 85);
+  }
+
+  .icon-lime {
+    color: limegreen; 
+  }
+
+  .icon-aqua {
+    color: aqua;
+  }
+
+  .icon-yellow {
+    color: yellow;
+  }
+
+  .submitButton {
+    margin-top: 15px; 
+    margin-bottom: 15px;
+  }
+
+  .submitIconButton {
+    margin-right: 10px;
   }
