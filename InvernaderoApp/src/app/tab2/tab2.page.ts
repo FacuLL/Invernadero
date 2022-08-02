@@ -31,5 +31,7 @@ export class Tab2Page {
 
   public onSelectChange(e, varName) {
     this.tabs.valores[varName] = e.detail.value;
+    console.log(this.tabs.valores[varName]);
+    console.log(this.tabs.nuevosValores[varName]);
   }
 }

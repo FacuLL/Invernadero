@@ -70,7 +70,8 @@
     </ion-item-group>
     <div class="buttons">
       <ion-button color="primary" disabled="{{tabs.isOptionsDisabled}}" class="submitButton" (click)="tabs.updateValues()">
-        <ion-icon name="checkmark-circle-outline" class="submitButtonIcon"></ion-icon>
+        <ion-icon name="checkmark-circle-outline" class="submitButtonIcon" *ngIf="!tabs.buttonloading"></ion-icon>
+        <ion-spinner name="crescent" *ngIf="tabs.buttonloading" class="submitButtonIcon"></ion-spinner>
         Aplicar
       </ion-button>
     </div>

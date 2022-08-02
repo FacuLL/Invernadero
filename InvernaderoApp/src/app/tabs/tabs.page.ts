@@ -26,6 +26,8 @@ export class TabsPage implements OnInit {
 
   public errorcard: string = '';
 
+  public buttonloading: boolean = false;
+
   @ViewChild('circleProgress') circleProgress: CircleProgressComponent;
 
   optionsTemp = {
@@ -150,9 +152,10 @@ export class TabsPage implements OnInit {
       message: error,
       buttons: [{
         text: 'Ok',
-        role: 'Ok',
+        role: 'Cancel',
         handler: () => {this.errorcard = error}
-      }]
+      }],
+      backdropDismiss: false
     });
     await alert.present();
     await alert.onDidDismiss();
@@ -201,11 +204,11 @@ export class TabsPage implements OnInit {
   public reloadValues() {
     this.dataService.getVal().subscribe(
       data => {
-        this.valores.hsluz = data[0].hsluz;        
+        this.valores.hsluz = data[0].hsluz;
         this.valores.riego = data[0].riego;
         this.valores.ventilacion = data[0].ventilacion;
 
-        this.nuevosValores.hsluz = data[0].hsluz;        
+        this.nuevosValores.hsluz = data[0].hsluz;
         this.nuevosValores.riego = data[0].riego;
         this.nuevosValores.ventilacion = data[0].ventilacion;
 
@@ -218,22 +221,30 @@ export class TabsPage implements OnInit {
   
   public updateValues() {
     if(this.valores.hsluz != this.nuevosValores.hsluz || this.valores.riego != this.nuevosValores.riego || this.valores.ventilacion != this.nuevosValores.ventilacion) {
+      this.buttonloading = true;
       this.dataService.modificarVal(this.valores).subscribe(
         res => {
           this.displaySuccess('Valores modificados correctamente');
-          this.valores = this.nuevosValores;
+          this.nuevosValores.hsluz = this.valores.hsluz;
+          this.nuevosValores.riego = this.valores.riego;
+          this.nuevosValores.ventilacion = this.valores.ventilacion;
+          this.buttonloading = false;
         },
         err => {
           if(err.status == 404 || err.status == 0) {
             this.displayErrorMsg('Error al conectar con el backend');
+            
           }
           else if(err.status == 401) {
             this.displaySuccess('Los valores se actualizaron, pero no hay conexión con el invernadero');
-            this.valores = this.nuevosValores;
+            this.nuevosValores.hsluz = this.valores.hsluz;
+            this.nuevosValores.riego = this.valores.riego;
+            this.nuevosValores.ventilacion = this.valores.ventilacion;
           }
           else {
             this.displayError(err);
           }
+          this.buttonloading = false;
         }
       )
     }

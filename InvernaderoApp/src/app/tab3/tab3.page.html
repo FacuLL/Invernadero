@@ -24,6 +24,20 @@
       </div>
     </ion-card>
 
+    <div class="graphs">
+      <div class="temp-div">
+        <apx-chart
+          [chart]="tempOptions.chart"
+          [series]="tempOptions.series"
+          [stroke]="tempOptions.stroke"
+          [markers]="tempOptions.markers"
+          [grid]="tempOptions.grid"
+          [tooltip]="tempOptions.tooltip"
+          [colors]="tempOptions.colors"
+        ></apx-chart>
+      </div>
+    </div>
+
     
   </div>
 </ion-content>
