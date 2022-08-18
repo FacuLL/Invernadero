@@ -7,7 +7,6 @@ import { Tab3Page } from './tab3.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab3PageRoutingModule } from './tab3-routing.module';
-import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   imports: [
@@ -16,8 +15,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     FormsModule,
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
-    Tab3PageRoutingModule,
-    NgApexchartsModule
+    Tab3PageRoutingModule
   ],
   declarations: [Tab3Page]
 })

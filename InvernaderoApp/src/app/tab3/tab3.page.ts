@@ -1,39 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
-import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexDataLabels,
-  ApexFill,
-  ApexGrid,
-  ApexLegend,
-  ApexMarkers,
-  ApexPlotOptions,
-  ApexStroke,
-  ApexTitleSubtitle,
-  ApexTooltip,
-  ApexXAxis,
-  ApexYAxis,
-} from 'ng-apexcharts';
-
-export type ChartOptions = {
-  chart: ApexChart;
-  series: ApexAxisChartSeries | any[];
-  stroke: ApexStroke;
-  markers: ApexMarkers;
-  grid: ApexGrid;
-  tooltip: ApexTooltip;
-  colors: any[];
-  labels: any[];
-  xaxis: ApexXAxis;
-  yaxis: ApexYAxis;
-  title: ApexTitleSubtitle;
-  subtitle: ApexTitleSubtitle;
-  dataLabels: ApexDataLabels;
-  legend: ApexLegend;
-  fill: ApexFill;
-  plotOptions: ApexPlotOptions;
-};
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Chart, registerables } from 'chart.js';
+import { DataService } from '../Services/data.service';
 
 @Component({
   selector: 'app-tab3',
@@ -41,77 +8,72 @@ export type ChartOptions = {
   styleUrls: ['tab3.page.scss']
 })
 
-export class Tab3Page implements OnInit {
+export class Tab3Page implements AfterViewInit {
 
-  public tempOptions: Partial<ChartOptions>;
-  public humedadOptions: Partial<ChartOptions>;
-  public humedadSueloOptions: Partial<ChartOptions>;
-  public luxesOptions: Partial<ChartOptions>;
-  public indCalOptions: Partial<ChartOptions>;
-  public lucesOptions: Partial<ChartOptions>;
-  public riegoOptions: Partial<ChartOptions>;
-  public ventOptions: Partial<ChartOptions>;
+  @ViewChild('tempCanvas') private tempCanvas: ElementRef;
 
-  constructor() {
-   
+  graficoTemp: any;
+
+  rango: string = 'mes';
+
+  constructor(private dataService: DataService) {
+    Chart.register(...registerables);
   }
 
-  ngOnInit(): void {
-    this.initTempChart();
+  ngAfterViewInit() {
+    this.tempChartMethod();
   }
 
-
-  initTempChart() {
-    this.tempOptions = {
-      chart: {
-        type: 'line',
-        height: 100,
-        sparkline: {
-          enabled: true,
-        },
-        dropShadow: {
-          enabled: true,
-          top: 1,
-          left: 1,
-          blur: 2,
-          opacity: 0.2,
-        },
-      },
-      series: [
-        {
-          name: 'Hola',
-          data: [12, 14, 2, 47, 32, 44, 14, 55, 41, 69],
-        },
-      ],
-      stroke: {
-        width: 3,
-        curve: 'smooth',
-      },
-      markers: {
-        size: 0,
-      },
-      grid: {
-        padding: {
-          top: 20,
-          left: 110,
-          bottom: 10,
-        },
-      },
-      colors: ['#00F'],
-      tooltip: {
-        theme: 'light',
-        x: {
-          show: false,
-        },
-        y: {
-          title: {
-            formatter: function formatter(val) {
-              return 'Hola'; // remove title in tooltip
-            },
-          },
-        },
-      },
-    };
+  tempChartMethod() {
+    this.graficoTemp = new Chart(this.tempCanvas.nativeElement, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'],
+        datasets: [
+          {
+            label: 'Temperatura',
+            fill: false,
+            backgroundColor: 'rgba(75,192,192,0.4)',
+            borderColor: 'rgba(75,192,192,1)',
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: 'rgba(75,192,192,1)',
+            pointBackgroundColor: '#fff',
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [65, 59, 80, 81, 56, 55, 40, 10, 5, 50, 10, 15],
+            spanGaps: false,
+          }
+        ]
+      }
+    });
+    this.getValues();
   }
 
+  getValues() {
+    this.dataService.getAllData().subscribe(
+      (res: any) => {
+        var fechahoy = new Date();
+        var fechas = [];
+        var datosTemp = [];
+        for (let i = 0; i < res.length; i++) {
+          var fechadato = new Date(res[i].date);
+          console.log(fechadato.getTime());
+          if(this.rango == 'dia') {
+            if (res[i].date.getDay == fechahoy.getDay) {
+
+            }
+          }
+          fechas.push(res[i].date)
+        }
+        this.graficoTemp.data.labels = fechas;
+      })
+  }
 }

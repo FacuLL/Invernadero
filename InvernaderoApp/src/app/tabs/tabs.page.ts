@@ -220,38 +220,38 @@ export class TabsPage implements OnInit {
   public isOptionsDisabled: boolean = true;
   
   public updateValues() {
-    if(this.valores.hsluz != this.nuevosValores.hsluz || this.valores.riego != this.nuevosValores.riego || this.valores.ventilacion != this.nuevosValores.ventilacion) {
-      this.buttonloading = true;
-      this.dataService.modificarVal(this.valores).subscribe(
-        res => {
-          this.displaySuccess('Valores modificados correctamente');
-          this.nuevosValores.hsluz = this.valores.hsluz;
-          this.nuevosValores.riego = this.valores.riego;
-          this.nuevosValores.ventilacion = this.valores.ventilacion;
-          this.buttonloading = false;
-        },
-        err => {
-          if(err.status == 404 || err.status == 0) {
-            this.displayErrorMsg('Error al conectar con el backend');
-            
-          }
-          else if(err.status == 401) {
-            this.displaySuccess('Los valores se actualizaron, pero no hay conexión con el invernadero');
+    if(!this.buttonloading) {
+      if(this.valores.hsluz != this.nuevosValores.hsluz || this.valores.riego != this.nuevosValores.riego || this.valores.ventilacion != this.nuevosValores.ventilacion) {
+        this.buttonloading = true;
+        this.dataService.modificarVal(this.valores).subscribe(
+          res => {
+            this.displaySuccess('Valores modificados correctamente');
             this.nuevosValores.hsluz = this.valores.hsluz;
             this.nuevosValores.riego = this.valores.riego;
             this.nuevosValores.ventilacion = this.valores.ventilacion;
+            this.buttonloading = false;
+          },
+          err => {
+            if(err.status == 404 || err.status == 0) {
+              this.displayErrorMsg('Error al conectar con el backend');
+              
+            }
+            else if(err.status == 401) {
+              this.displaySuccess('Los valores se actualizaron, pero no hay conexión con el invernadero');
+              this.nuevosValores.hsluz = this.valores.hsluz;
+              this.nuevosValores.riego = this.valores.riego;
+              this.nuevosValores.ventilacion = this.valores.ventilacion;
+            }
+            else {
+              this.displayError(err);
+            }
+            this.buttonloading = false;
           }
-          else {
-            this.displayError(err);
-          }
-          this.buttonloading = false;
-        }
-      )
-    }
-    else {
-      this.displayErrorMsg('Debes editar al menos un valor');
+        )
+      }
+      else {
+        this.displayErrorMsg('Debes editar al menos un valor');
+      } 
     }
   }
-
-
 }

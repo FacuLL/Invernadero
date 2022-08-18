@@ -1,6 +1,6 @@
 ###
 
-GET http://localhost:3000/gethour
+GET http://192.168.202.48:3000/gethour
 
 ###
 
@@ -8,15 +8,15 @@ GET http://localhost:3000/startcollecter
 
 ###
 
-POST http://localhost:3000/modificarval
+POST http://192.168.202.48:3000/modificarval
 Content-Type: application/json
 
 {
-    "hsluz": 0,
-    "riego": 0,
+    "hsluz": 3,
+    "riego": 3,
     "ventilacion": 3
 }
 
 ###
 
-GET http://localhost:3000/toexcel
+GET http://192.168.202.48:3000/toexcel

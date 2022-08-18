@@ -15,6 +15,10 @@ export class DataService {
 
   constructor(private http : HttpClient) {  }
 
+  getAllData() {
+    return this.http.get(this.DATA_URL_API + '/getalldata')
+  }
+
   getLastData(): Observable<Data> {
     return this.http.get<Data>(this.DATA_URL_API + '/getlastdata');
   }
