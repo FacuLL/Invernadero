@@ -15,11 +15,11 @@ export class TabsPage implements OnInit {
 
   constructor(private dataService:DataService, private alertController: AlertController) {}
 
-  public temp: Number = 40;
-  public humedad: Number = 90;
-  public indCal: Number = 40;
-  public humedadsuelo: Number = 90;
-  public lux: Number = 1500;
+  public temp: Number = 0;
+  public humedad: Number = 0;
+  public indCal: Number = 0;
+  public humedadsuelo: Number = 0;
+  public lux: Number = 0;
   public ventilacion: boolean = false;
   public lampara: boolean = false;
   public riego: boolean = false;
@@ -107,25 +107,27 @@ export class TabsPage implements OnInit {
   }
 
   reloadData() {
-    const intervalo = timer(0, 10000).subscribe((second) => {
-      this.dataService.getLastData().subscribe(
-        (data) => {
-          this.temp = data.temp;
-          this.humedad = data.humedad;
-          this.indCal = data.indCal;
-          this.humedadsuelo = data.humedadsuelo;
-          this.lux = data.lux;
-          this.ventilacion = !!data.ventilacion;
-          this.lampara = !!data.lampara;
-          this.riego = !!data.riego;
-          this.updateCircles();
-          this.errorcard = ''
-        },
-        (err) => {
-          this.displayError(err)
-          intervalo.unsubscribe()
-        }
-      )
+    this.dataService.importURL().then(res => {
+      const intervalo = timer(0, 10000).subscribe((second) => {
+        this.dataService.getLastData().subscribe(
+          (data) => {
+            this.temp = data.temp;
+            this.humedad = data.humedad;
+            this.indCal = data.indCal;
+            this.humedadsuelo = data.humedadsuelo;
+            this.lux = data.lux;
+            this.ventilacion = !!data.ventilacion;
+            this.lampara = !!data.lampara;
+            this.riego = !!data.riego;
+            this.updateCircles();
+            this.errorcard = ''
+          },
+          (err) => {
+            this.displayError(err)
+            intervalo.unsubscribe()
+          }
+        )
+      })
     })
   }
   

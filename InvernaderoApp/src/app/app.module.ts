@@ -11,9 +11,13 @@ import { InfoconfigComponent } from './components/infoconfig/infoconfig.componen
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
+import { Filesystem } from '@capacitor/filesystem';
+
+import { IonicStorageModule } from '@ionic/storage-angular';
+
 @NgModule({
     declarations: [AppComponent, InfoconfigComponent],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(),
         NgCircleProgressModule.forRoot({
             "radius": 100,
             "space": 5,

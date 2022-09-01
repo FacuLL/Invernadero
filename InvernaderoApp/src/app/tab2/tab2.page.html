@@ -26,6 +26,26 @@
       </div>
     </ion-card>
 
+    <ion-card class="card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="server-outline"></ion-icon>
+          Cambiar servidor backend
+        </ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Cambia la IP del servidor backend
+      </ion-card-content>
+
+      <div class="cardButtonDiv">
+        <ion-button color="dark" class="cardButton" size="small" (click)="changeBackend()">
+          <ion-icon name="arrow-forward-circle-outline" class="buttonIcon"></ion-icon>
+          Cambiar
+        </ion-button>
+      </div>
+    </ion-card>
+
     <app-connectionerror *ngIf="tabs.errorcard != ''"></app-connectionerror>
 
     <ion-item-group class="itemsdiv">

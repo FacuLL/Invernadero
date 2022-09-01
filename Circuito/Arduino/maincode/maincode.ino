@@ -15,9 +15,9 @@
   const char* ssid = "Red EATA"; // Nombre wifi
   const char* password = ""; // Contraseña wifi
 
-  IPAddress local_IP(192,168,201,88);
-  IPAddress gateway(192,168,200,1);
-  IPAddress subnet(255,255,248,0);
+  IPAddress local_IP(192,168,10,251);
+  IPAddress gateway(192,168,8,1);
+  IPAddress subnet(255,255,252,0);
   // IPAddress gateway(192,168,0,1);
   // IPAddress subnet(255,255,255,0);
   IPAddress dns1(1, 1, 1, 1);
@@ -25,7 +25,7 @@
   
   WebServer server(80);
   // Conexion con backend
-  String serverip = "http://192.168.202.48:3000";
+  String serverip = "http://192.168.10.250:3000";
   // Sensores
     //DHT 11 (Temp y humedad)
       #define DHTPIN 4 // Pin del dht
@@ -263,9 +263,9 @@ void setup() {
   WiFi.begin(ssid, password); // Intentamos la conexion a la WIFI
 
   // Configuramos la ip estática
-  // if (!WiFi.config(local_IP, gateway, subnet, dns1)) {
-  //  Serial.println("STA Failed to configure");
-  //}
+  if (!WiFi.config(local_IP, gateway, subnet, dns1)) {
+    Serial.println("STA Failed to configure");
+  }
   
   while (WiFi.status() != WL_CONNECTED)
        {  delay(1000);
@@ -384,7 +384,7 @@ void TaskVent(void *pvParameters) {
 
     // En cada minuto, se mide la luz y se prenden y apagan las luces segun la configuracion
     if (currentMinute != lastminute) {
-    if(currentMinute == 0 && currentHour == 0) {minutosluzdia = 0;}
+    if(currentMinute == 0 && currentHour == 8) {minutosluzdia = 0;}
     uint16_t lux = Luxometro.readLightLevel();
     lastminute = currentMinute;
     if (lux < daylight) {

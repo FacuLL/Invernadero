@@ -24,3 +24,37 @@
 .buttonIcon {
   margin-right: 5px;
 }
+
+.button-group {
+  display: inline-flex;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.groupbutton {
+  padding: 10px 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-right: 1px solid #cccccc;
+  background: #211f1f;
+  font-family: "Inter", sans-serif;
+  color: #FFF;
+}
+
+.groupbutton:last-child {
+  border-right: none;
+}
+
+.groupbutton:hover {
+  background: #2c2c2c;
+}
+
+.groupbutton-selected {
+  background-color: rgb(36, 85, 85);
+}
+
+.groupbutton-selected:hover {
+  background-color: rgb(33, 63, 63);
+}

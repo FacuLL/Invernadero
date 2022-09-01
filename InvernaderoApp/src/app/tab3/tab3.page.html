@@ -17,7 +17,7 @@
         Presionando este boton obtendrás los datos del invernadero en una planilla excel (.xlxs)
       </ion-card-content>
       <div class="cardButtonDiv">
-        <ion-button color="success" class="cardButton">
+        <ion-button color="success" class="cardButton" (click)="toExcel()">
           <ion-icon name="cloud-download-outline" class="buttonIcon"></ion-icon>
           Descargar Excel
         </ion-button>
@@ -26,10 +26,88 @@
 
     <ion-card class="card">
       <ion-card-header>
-        Temperatura
+        Selecciona intervalos a mostrar
+      </ion-card-header>
+      <ion-card-content>
+        <div class="cardButtonDiv">
+          <div class="button-group">
+            <button class="groupbutton {{ rango == 'day' ? 'groupbutton-selected' : '' }}" type="button" (click)="changeRange('day')">Hoy</button>
+            <button class="groupbutton {{ rango == 'month' ? 'groupbutton-selected' : '' }}" type="button" (click)="changeRange('month')">Este mes</button>
+            <button class="groupbutton {{ rango == 'total' ? 'groupbutton-selected' : '' }}" type="button" (click)="changeRange('total')">Total</button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header>
+        Temperatura (ºC)
       </ion-card-header>
       <ion-card-content>
         <canvas #tempCanvas style="position: relative;"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header>
+        Humedad (%)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #humedadCanvas style="position: relative;"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header>
+        Humedad Suelo (%)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #humedadSueloCanvas style="position: relative;"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header>
+        Luminosidad (Luxes)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #luxesCanvas style="position: relative;"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header>
+        Indice de calor (ºC)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #indCalCanvas style="position: relative;"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header>
+        Ventilacion (1 prendido, 0 apagado)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #ventCanvas style="position: relative;"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header>
+        Luces (1 prendido, 0 apagado)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lucesCanvas style="position: relative;"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header>
+        Riego (1 prendido, 0 apagado)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #riegoCanvas style="position: relative;"></canvas>
       </ion-card-content>
     </ion-card>
 
