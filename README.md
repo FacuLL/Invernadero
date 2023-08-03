@@ -16,7 +16,7 @@ Utiliza express y conecta el frontend con la base de datos, permitiendo al usuar
 
 ## Frontend (App y Web)
 
-Se encuentra en el directorio ./InvernaderoIonic.
+Se encuentra en el directorio ./InvernaderoApp.
 
 ### ¿Cómo funciona?
 Utiliza angular e Ionic para poder compilar en android y ios.
