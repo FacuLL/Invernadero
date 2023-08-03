@@ -1,34 +1,24 @@
 # Invernadero
 
-El invernadero full fachero de los pibes anache. A continuación se explican todas las partes del proyecto
+El invernadero automatizado y monitoreado es un proyecto llevado a cabo en el úlitmo año del secundario como monografía. A continuación se explican todas las partes del proyecto.
 
 ## Backend
 
 Se encuentra en el directorio ./Backend.
 
-### Cómo funciona?
-Utiliza express y conecta el frontend con la base de datos.
-### Cómo usar?
+### ¿Cómo funciona?
+Utiliza express y conecta el frontend con la base de datos, permitiendo al usuario acceder a los datos actuales e históricos del invernadero.
+### ¿Cómo usar?
 1. Instalar dependencias con comando "npm install"
 2. Ejecutar comando "node src/index.js"
 
-## Frontend (Web)
-
-Se encuentra en el directorio ./invernadero-frontend.
-
-### Cómo funciona?
-Utiliza angular y bootstrap para dar una linda interfaz de usuario para manejar el invernadero desde el navegador.
-### Cómo usar?
-1. Instalar dependencias con comando "npm install"
-2. Ejecutar comando "ng serve"
-
-## Frontend (App)
+## Frontend (App y Web)
 
 Se encuentra en el directorio ./InvernaderoIonic.
 
-### Cómo funciona?
+### ¿Cómo funciona?
 Utiliza angular e Ionic para poder compilar en android y ios.
-### Cómo usar?
+### ¿Cómo usar?
 1. Instalar dependencias con comando "npm install"
 2. Ejecutar comando "ionic serve"
 
