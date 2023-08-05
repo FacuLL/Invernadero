@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/2f07f5b8-1da4-4340-b1a6-9748c63888a8" width="150px" />
+</p>
+
 # Invernadero
 
 El invernadero automatizado y monitoreado es un proyecto llevado a cabo en el úlitmo año del secundario como monografía. A continuación se explican todas las partes del proyecto.
@@ -23,6 +27,14 @@ Utiliza angular e Ionic para poder compilar en android y ios.
 ### ¿Cómo usar?
 1. Instalar dependencias con comando "npm install"
 2. Ejecutar comando "ionic serve"
+### Imágenes
+<p align="center">
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/2f07f5b8-1da4-4340-b1a6-9748c63888a8" width="150px" />
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/69a6e12c-349b-4a4e-879b-d3cc89c1e82a" width="150px" />
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/fcefa925-a604-4fcb-ae35-98b15b4bcf36" width="150px" />
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/3f084c33-206b-41d9-89c7-0a4cf431d4c6" width="150px" />
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/e378e0a9-d2c9-4546-b565-5c9021bc91e5" width="150px" />
+</p>
 
 ## Circuito Electrónico
 
