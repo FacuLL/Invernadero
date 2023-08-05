@@ -6,7 +6,7 @@
 
 El invernadero automatizado y monitoreado es un proyecto llevado a cabo en el úlitmo año del secundario como monografía. A continuación se explican todas las partes del proyecto.
 
-Informe con información detallada: https://docs.google.com/document/d/1FhA-2R22m6VjRX9H3Iv1nAXqOsCNjsUM5NXob_GzLWQ/edit?usp=sharing
+Informe con información detallada: <a href="https://docs.google.com/document/d/1FhA-2R22m6VjRX9H3Iv1nAXqOsCNjsUM5NXob_GzLWQ/edit?usp=sharing" target="_blank">aquí</a>
 
 ## Backend
 
