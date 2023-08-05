@@ -39,3 +39,9 @@ Utiliza angular e Ionic para poder compilar en android y ios.
 ## Circuito Electrónico
 
 Se encuentra en el directorio ./Circuito. Contiene todos los archivos que se ejecutan en el microcontrolador (MCU ESP32) y sus correspondientes maquetas (Fritzing).
+
+<p align="center">
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/b21c2bd7-61d7-4508-94e0-56b965ec2e55" height="250px" />
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/97b2930b-3753-4a9d-a555-ea12a0766618" height="250px" />
+</p>
+
