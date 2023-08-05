@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/2f07f5b8-1da4-4340-b1a6-9748c63888a8" width="150px" />
+  <img src="https://github.com/FacuLL/Invernadero/assets/69525757/2192b04f-b3fa-4d57-bd86-fe7b35bdbd2a" width="300px" />
 </p>
 
 # Invernadero
