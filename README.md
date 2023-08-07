@@ -13,7 +13,7 @@ Informe con información detallada: <a href="https://docs.google.com/document/d/
 Se encuentra en el directorio ./Backend.
 
 ### ¿Cómo funciona?
-Utiliza express y conecta el frontend con la base de datos, permitiendo al usuario acceder a los datos actuales e históricos del invernadero.
+Utiliza ExpressJS y MySQL como base de datos. Conecta el frontend con la base de datos, permitiendo al usuario acceder a los datos actuales e históricos del invernadero.
 ### ¿Cómo usar?
 1. Instalar dependencias con comando "npm install"
 2. Ejecutar comando "node src/index.js"
@@ -23,7 +23,7 @@ Utiliza express y conecta el frontend con la base de datos, permitiendo al usuar
 Se encuentra en el directorio ./InvernaderoApp.
 
 ### ¿Cómo funciona?
-Utiliza angular e Ionic para poder compilar en android y ios.
+Utiliza Angular e Ionic para poder compilar en iOS y Android utilizando Capacitor.
 ### ¿Cómo usar?
 1. Instalar dependencias con comando "npm install"
 2. Ejecutar comando "ionic serve"
