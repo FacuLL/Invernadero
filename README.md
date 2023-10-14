@@ -15,9 +15,16 @@ Se encuentra en el directorio ./Backend.
 ### ¿Cómo funciona?
 Utiliza ExpressJS y MySQL como base de datos. Conecta el frontend con la base de datos, permitiendo al usuario acceder a los datos actuales e históricos del invernadero.
 ### ¿Cómo usar?
-1. Instalar dependencias con comando "npm install"
-2. Ejecutar comando "node src/index.js"
+1. Instalar dependencias.
 
+```console
+  npm install
+```
+2. Iniciar servidor backend.
+
+```console
+  node src/index.js
+```
 ## Frontend (App y Web)
 
 Se encuentra en el directorio ./InvernaderoApp.
@@ -25,9 +32,17 @@ Se encuentra en el directorio ./InvernaderoApp.
 ### ¿Cómo funciona?
 Utiliza Angular e Ionic para poder compilar en iOS y Android utilizando Capacitor.
 ### ¿Cómo usar?
-1. Instalar dependencias con comando "npm install"
-2. Ejecutar comando "ionic serve"
-### Imágenes
+1. Instalar dependencias.
+
+```console
+  npm install
+```
+2. Iniciar frontend.
+
+```console
+  npm install
+```
+### Galería
 <p align="center">
   <img src="https://github.com/FacuLL/Invernadero/assets/69525757/2f07f5b8-1da4-4340-b1a6-9748c63888a8" width="150px" />
   <img src="https://github.com/FacuLL/Invernadero/assets/69525757/69a6e12c-349b-4a4e-879b-d3cc89c1e82a" width="150px" />
