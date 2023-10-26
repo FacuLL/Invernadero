@@ -14,7 +14,7 @@ Se encuentra en el directorio ./Backend.
 
 ### ¿Cómo funciona?
 Utiliza ExpressJS y MySQL como base de datos. Conecta el frontend con la base de datos, permitiendo al usuario acceder a los datos actuales e históricos del invernadero.
-### ¿Cómo usar?
+### ¿Cómo desplegar?
 1. Instalar dependencias.
 
 ```console
@@ -31,7 +31,7 @@ Se encuentra en el directorio ./InvernaderoApp.
 
 ### ¿Cómo funciona?
 Utiliza Angular e Ionic para poder compilar en iOS y Android utilizando Capacitor.
-### ¿Cómo usar?
+### ¿Cómo desplegar?
 1. Instalar dependencias.
 
 ```console
@@ -40,7 +40,7 @@ Utiliza Angular e Ionic para poder compilar en iOS y Android utilizando Capacito
 2. Iniciar frontend.
 
 ```console
-  npm install
+  ionic serve
 ```
 ### Galería
 <p align="center">
