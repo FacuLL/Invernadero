@@ -37,11 +37,14 @@ Utiliza Angular e Ionic para poder compilar en iOS y Android utilizando Capacito
 ```console
   npm install
 ```
-2. Iniciar frontend.
+2. Iniciar frontend (para web).
 
 ```console
   ionic serve
 ```
+> [!NOTE]  
+> El build de la aplicación dependerá del sistema operativo en el que se quiera ejecutar. Para más información visite [la documentación oficial de Ionic](https://ionicframework.com/docs/).
+
 ### Galería
 <p align="center">
   <img src="https://github.com/FacuLL/Invernadero/assets/69525757/2f07f5b8-1da4-4340-b1a6-9748c63888a8" width="150px" />
